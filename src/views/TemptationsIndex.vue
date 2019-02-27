@@ -26,8 +26,7 @@ export default {
     return {
       temptations: [],
       name: "",
-      cost: "",
-      frequency: "",
+      cost: "", 
       time: ""
       // user_id: ""
     };
