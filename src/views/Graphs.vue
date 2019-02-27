@@ -35,27 +35,35 @@ require('highcharts/modules/exporting')(Highcharts);
 
 document.addEventListener('DOMContentLoaded', function () {
     var myChart = Highcharts.chart('weeklyGraph', {
-        chart: {
-            type: 'bar'
-        },
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Weekly Savings'
+      },
+      xAxis: {
+        categories: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      },
+      yAxis: {
         title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
+          text: 'Money ($)'
+        }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: true
+        }
+      },
+      series: [{
+        name: 'Savings Schedule',
+        data: [5, 10, 15, 20, 25, 30, 35]
+      }, {
+        name: 'Actual Savings',
+        data: [10, 12, 17, 22, 22, 22, 33]
+      }]
     });
 });
 </script>
