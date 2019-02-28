@@ -12,6 +12,6 @@ export default new Router({
   routes: [
           { path: '/temptations', name: 'temptations-index', component: TemptationsIndex },
           { path: '/temptations/new', name: 'temptations-new', component: TemptationsNew },
-          { path: '/graphs', name: 'graphs', component: Graphs }, 
+          { path: '/graphs', name: 'graphs', component: Graphs }
           ]
 })
