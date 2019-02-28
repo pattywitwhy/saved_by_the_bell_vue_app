@@ -126,8 +126,8 @@ export default {
               friday: false,
               saturday: false,
               sunday: false,
-              time: ""
-              // user_id: ""
+              time: "",
+              user_id: ""
               },
     };
   },
@@ -149,7 +149,8 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time
+                    time: this.temptation.time,
+                    user_id: this.temptation.user_id
                     };
 
       axios.post("/api/temptations", params)
@@ -165,6 +166,7 @@ export default {
           this.temptation.saturday = false;
           this.temptation.sunday = false;
           this.temptation.time = "";
+          this.temptation.user_id = "";
         }).catch(error => {
           this.errors = error.response.data.errors;
         });
