@@ -16,7 +16,7 @@
               <router-link class="nav-link" to="#">My Profile</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="graphs">Graphs</router-link>
+              <a class="nav-link" href="graphs">Graphs</a>
             </li>
           </ul>
         </div>
