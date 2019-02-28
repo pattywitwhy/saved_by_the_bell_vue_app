@@ -2,7 +2,7 @@
   <div class="temptation-index">
 
     <ul>
-      <li v-for="error in errors"> {{ error }} </li>
+      <!-- <li v-for="error in errors"> {{ error }} </li> -->
     </ul>
 
     <div class='container'>
@@ -102,6 +102,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <style>
@@ -115,10 +116,6 @@ export default {
   data: function() {
     return {
       temptations: [],
-      name: "",
-      cost: "", 
-      time: "",
-      // user_id: ""
       temptation: {
               name: "",
               cost: 0,
@@ -157,8 +154,18 @@ export default {
 
       axios.post("/api/temptations", params)
         .then(response => {
-          this.$router.push("/temptations/");
-        }).temptations(error => {
+          this.temptations.push(response.data);
+          this.temptation.name = "";
+          this.temptation.cost = 0;
+          this.temptation.monday = false;
+          this.temptation.tuesday = false;
+          this.temptation.wednesday = false;
+          this.temptation.thursday = false;
+          this.temptation.friday = false;
+          this.temptation.saturday = false;
+          this.temptation.sunday = false;
+          this.temptation.time = "";
+        }).catch(error => {
           this.errors = error.response.data.errors;
         });
     }
