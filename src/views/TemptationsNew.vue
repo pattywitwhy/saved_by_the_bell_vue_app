@@ -9,41 +9,77 @@
       <h2>Enter Basic Info</h2>
       <form v-on:submit.prevent="submit()">
         <div class="form-group">
-          <label>Temptation Name: </label>
-          <input class='form-control' type='text' v-model="temptation.name" placeholder="ex: Buy morning Starbucks">
+          <label for="temptationSelect1">Select the Temptation You would like to be notified about: </label>
+          <select class="form-control" id="temptationSelect1" v-model="temptation.name">
+            <option>Taking a ride-share in the morning</option>
+            <option>Taking a ride-share in the evening</option>
+            <option>Buy coffee in the morning</option>
+            <option>Eating out for breakfast</option>
+            <option>Eating out for lunch</option>
+            <option>Eating out for dinner</option>
+            <option>Going out for happy hour 😱</option>
+            <option>Going out to the movies</option>
+            <option>Buying cigarettes</option>
+          </select>
         </div>
         <div class="form-group">
-          <label>Temptation Cost: </label>
-          <input class='form-control' type='text' v-model="temptation.cost" placeholder="ex: $5">
+          <label>Temptation Cost in dollars: </label>
+          <input class='form-control' type='text' v-model="temptation.cost" placeholder="ex: 5">
         </div>
-        <div class="form-group">
-          <label>Tempted on Monday?: </label>
-          <input class='form-control' type='text' v-model="temptation.monday" placeholder="ex: true">
+        <div>
+          
+          <div>On what days will you be tempted?</div>
+
         </div>
-        <div class="form-group">
-          <label>Tempted on Tuesday? </label>
-          <input class='form-control' type='text' v-model="temptation.tuesday" placeholder="ex: true">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.monday">
+          <label class="form-check-label" for="defaultCheck1">
+            M
+          </label>
         </div>
-        <div class="form-group">
-          <label>Tempted on Wednesday?? </label>
-          <input class='form-control' type='text' v-model="temptation.wednesday" placeholder="ex: true">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.tuesday">
+          <label class="form-check-label" for="defaultCheck1">
+            T
+          </label>
         </div>
-        <div class="form-group">
-          <label>Tempted on Thursday? </label>
-          <input class='form-control' type='text' v-model="temptation.thursday" placeholder="ex: true">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.wednesday">
+          <label class="form-check-label" for="defaultCheck1">
+            W
+          </label>
         </div>
-        <div class="form-group">
-          <label>Tempted on Friday? </label>
-          <input class='form-control' type='text' v-model="temptation.friday" placeholder="ex: true">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.thursday">
+          <label class="form-check-label" for="defaultCheck1">
+            Th
+          </label>
         </div>
-        <div class="form-group">
-          <label>Tempted on Saturday? </label>
-          <input class='form-control' type='text' v-model="temptation.saturday" placeholder="ex: true">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.friday">
+          <label class="form-check-label" for="defaultCheck1">
+            F
+          </label>
         </div>
-        <div class="form-group">
-          <label>Tempted on Sunday? </label>
-          <input class='form-control' type='text' v-model="temptation.sunday" placeholder="ex: true">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.saturday">
+          <label class="form-check-label" for="defaultCheck1">
+            Sa
+          </label>
         </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.sunday">
+          <label class="form-check-label" for="defaultCheck1">
+            S
+          </label>
+        </div>
+
         <div class="form-group">
           <label>What time does the temptation occur? </label>
           <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
@@ -75,14 +111,14 @@ export default {
     return {
       temptation: {
               name: "",
-              cost: "",
-              monday: "",
-              tuesday: "",
-              wednesday: "",
-              thursday: "",
-              friday: "",
-              saturday: "",
-              sunday: "",
+              cost: 0,
+              monday: false,
+              tuesday: false,
+              wednesday: false,
+              thursday: false,
+              friday: false,
+              saturday: false,
+              sunday: false,
               time: ""
               // user_id: ""
               },
@@ -104,10 +140,11 @@ export default {
                     sunday: this.temptation.sunday,
                     time: this.temptation.time
                     };
+                    
       axios.post("/api/temptations", params)
         .then(response => {
-          this.$router.push("/temptations/" + response.data.id);
-        }).temptationch(error => {
+          this.$router.push("/temptations/");
+        }).temptations(error => {
           this.errors = error.response.data.errors;
         });
     }
