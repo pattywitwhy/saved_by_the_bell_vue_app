@@ -18,6 +18,12 @@
             <li class="nav-item">
               <a class="nav-link" href="graphs">Graphs</a>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="login">Login</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" on:click='logout()'>Logout</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -29,3 +35,17 @@
 <style>
 
 </style>
+
+<script>
+var axios = require('axios')
+
+export default {
+  methods: {
+    logout: function() {
+      delete axios.defaults.headers.common["Authorization"];
+      localStorage.removeItem("jwt");
+      this.$router.push("/login");
+    }
+  }
+}
+</script>
