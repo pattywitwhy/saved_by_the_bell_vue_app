@@ -5,6 +5,7 @@
       <li v-for="error in errors"> {{ error }} </li>
     </ul>
 
+
     <div class='container'>
       <h2>Enter Basic Info</h2>
       <form v-on:submit.prevent="submit()">

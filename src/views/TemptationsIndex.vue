@@ -4,105 +4,126 @@
     <ul>
       <!-- <li v-for="error in errors"> {{ error }} </li> -->
     </ul>
-
     <div class='container'>
-      <h2>What's tempting you?</h2>
-      <form v-on:submit.prevent="submit()">
-        <div class="form-group">
-          <label for="temptationSelect1">Select the Temptation You would like to be notified about: </label>
-          <select class="form-control" id="temptationSelect1" v-model="temptation.name">
-            <option>Taking a ride-share in the morning</option>
-            <option>Taking a ride-share in the evening</option>
-            <option>Buy coffee in the morning</option>
-            <option>Eating out for breakfast</option>
-            <option>Eating out for lunch</option>
-            <option>Eating out for dinner</option>
-            <option>Going out for happy hour 😱</option>
-            <option>Going out to the movies</option>
-            <option>Buying cigarettes</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Temptation Cost in dollars: </label>
-          <input class='form-control' type='text' v-model="temptation.cost" placeholder="ex: 5">
-        </div>
-        <div>
-          
-          <div>On what days will you be tempted?</div>
+      <div class="card-group">
+        <div class='col-sm-6'>
+          <h2>What's tempting you?</h2>
+          <form v-on:submit.prevent="submit()">
+            <div class="form-group">
+              <label for="temptationSelect1">Select the Temptation You would like to be notified about: </label>
+              <select class="form-control" id="temptationSelect1" v-model="temptation.name">
+                <option>Taking a ride-share in the morning</option>
+                <option>Taking a ride-share in the evening</option>
+                <option>Buy coffee in the morning</option>
+                <option>Eating out for breakfast</option>
+                <option>Eating out for lunch</option>
+                <option>Eating out for dinner</option>
+                <option>Going out for happy hour 😱</option>
+                <option>Going out to the movies</option>
+                <option>Buying cigarettes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Temptation Cost in dollars: </label>
+              <input class='form-control' type='text' v-model="temptation.cost" placeholder="ex: 5">
+            </div>
+            <div>
+              
+              <div>On what days will you be tempted?</div>
 
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.monday">
-          <label class="form-check-label" for="defaultCheck1">
-            M
-          </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.monday">
+              <label class="form-check-label" for="defaultCheck1">
+                M
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.tuesday">
+              <label class="form-check-label" for="defaultCheck1">
+                T
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.wednesday">
+              <label class="form-check-label" for="defaultCheck1">
+                W
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.thursday">
+              <label class="form-check-label" for="defaultCheck1">
+                Th
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.friday">
+              <label class="form-check-label" for="defaultCheck1">
+                F
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.saturday">
+              <label class="form-check-label" for="defaultCheck1">
+                Sa
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.sunday">
+              <label class="form-check-label" for="defaultCheck1">
+                S
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label>What time does the temptation occur? </label>
+              <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
+            </div>
+            <div class="new-button">
+              <input type="submit" value="Create" class="btn btn-primary">
+            </div>
+          </form>
         </div>
 
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.tuesday">
-          <label class="form-check-label" for="defaultCheck1">
-            T
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.wednesday">
-          <label class="form-check-label" for="defaultCheck1">
-            W
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.thursday">
-          <label class="form-check-label" for="defaultCheck1">
-            Th
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.friday">
-          <label class="form-check-label" for="defaultCheck1">
-            F
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.saturday">
-          <label class="form-check-label" for="defaultCheck1">
-            Sa
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.sunday">
-          <label class="form-check-label" for="defaultCheck1">
-            S
-          </label>
-        </div>
-
-        <div class="form-group">
-          <label>What time does the temptation occur? </label>
-          <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
-        </div>
-        <div class="new-button">
-          <input type="submit" value="Create" class="btn btn-primary">
-        </div>
-      </form>
+        <div class='col-sm-6'>
+          <h1>MY GOALS</h1>
+        </div>        
+      </div>
     </div>
 
-    <div class="card-deck">
-      <div class="col-md-4" v-for="temptation in temptations">
+    <div class="card-group">
+      <div class="col-sm-3" v-for="temptation in temptations">
         <router-link v-bind:to="'/temptations/' + temptation.id">
           <div class="card mt-3 bg-light">
-            <h2 class="card-title mt-2 text-center" > {{ temptation.name }}</h2>
-            <p class="card-text "> ${{ temptation.cost }}</p>
-            <p class="card-text "> {{ temptation.time }}</p>
+            <div>
+              <div class="brand-card-header">
+                <h2 class="card-title mt-2 text-center text-uppercase" > {{ temptation.name }}</h2>
+              </div>
+              <div class="brand-card">
+
+                <div class="brand-card-body">
+                  <div>
+                    <p class="card-text"><small class="text-muted"> ${{ temptation.cost }} </small></p>
+                  </div>
+                  <div> 
+                    <p class="card-text"><small class="text-muted"> {{ temptation.time }} </small></p>
+                  </div>  
+                </div>
+              </div>
+            </div>
           </div>
         </router-link>
       </div>
+        
     </div>
   </div>
-  
+
 </template>
 
 <style>
