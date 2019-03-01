@@ -1,3 +1,4 @@
+
 <template>
   <div class="graphs">
     <div class="container">
