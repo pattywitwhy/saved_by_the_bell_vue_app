@@ -85,8 +85,7 @@
           <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
         </div>
         <div class="new-button">
-          <input type="submit" value="Create" class="btn btn-primary">
-        </div>
+          <button type="submit" class="btn btn-base-color btn-block btn-large box-shadow-wide mt-5 mx-0 text-white" id="btn-form-contact">Create</button>        </div>
       </form>
     </div>
   </div>
@@ -143,8 +142,9 @@ export default {
                     
       axios.post("/api/temptations", params)
         .then(response => {
+          console.log("Success", response.data);
           this.$router.push("/temptations/");
-        }).temptations(error => {
+        }).catch(error => {
           this.errors = error.response.data.errors;
         });
     }
