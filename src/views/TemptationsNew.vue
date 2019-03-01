@@ -1,12 +1,12 @@
 <template>
-  <div class="temptation-index">
+  <div class="temptations-new">
 
     <ul>
-      <!-- <li v-for="error in errors"> {{ error }} </li> -->
+      <li v-for="error in errors"> {{ error }} </li>
     </ul>
 
     <div class='container'>
-      <h2>What's tempting you?</h2>
+      <h2>Enter Basic Info</h2>
       <form v-on:submit.prevent="submit()">
         <div class="form-group">
           <label for="temptationSelect1">Select the Temptation You would like to be notified about: </label>
@@ -89,33 +89,26 @@
         </div>
       </form>
     </div>
-
-    <div class="card-deck">
-      <div class="col-md-4" v-for="temptation in temptations">
-        <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
-          <div class="card mt-3 bg-light">
-            <h2 class="card-title mt-2 text-center" > {{ temptation.name }}</h2>
-            <p class="card-text "> ${{ temptation.cost }}</p>
-            <p class="card-text "> {{ temptation.time }}</p>
-          </div>
-        </router-link>
-      </div>
-    </div>
   </div>
-  
 </template>
 
-<style>
 
+<style>
+/*.new-button{
+  text-align: center
+}
+.container{
+  margin-bottom: 30px;
+}*/
 </style>
 
+
 <script>
-var axios = require("axios");
+var axios = require('axios');
 
 export default {
   data: function() {
     return {
-      temptations: [],
       temptation: {
               name: "",
               cost: 0,
@@ -126,17 +119,13 @@ export default {
               friday: false,
               saturday: false,
               sunday: false,
-              time: "",
-              user_id: ""
+              time: ""
+              // user_id: ""
               },
+      errors: []
     };
   },
-  created: function() {
-    axios.get("/api/temptations")
-    .then(response => {
-      this.temptations = response.data;
-    });
-  },
+  created: function() {},
   methods: {
     submit: function() {
       var params = {
@@ -149,28 +138,16 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time,
-                    user_id: this.temptation.user_id
+                    time: this.temptation.time
                     };
-
+                    
       axios.post("/api/temptations", params)
         .then(response => {
-          this.temptations.push(response.data);
-          this.temptation.name = "";
-          this.temptation.cost = 0;
-          this.temptation.monday = false;
-          this.temptation.tuesday = false;
-          this.temptation.wednesday = false;
-          this.temptation.thursday = false;
-          this.temptation.friday = false;
-          this.temptation.saturday = false;
-          this.temptation.sunday = false;
-          this.temptation.time = "";
-          this.temptation.user_id = "";
-        }).catch(error => {
+          this.$router.push("/temptations/");
+        }).temptations(error => {
           this.errors = error.response.data.errors;
         });
     }
   }
-};
+}
 </script>
