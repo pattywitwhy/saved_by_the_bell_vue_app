@@ -97,9 +97,15 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="card-group">
       <div class="col-sm-3" v-for="temptation in temptations">
         <router-link v-bind:to="'/temptations/' + temptation.id">
+=======
+    <div class="card-deck">
+      <div class="col-md-4" v-for="temptation in temptations">
+        <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
+>>>>>>> 4883876872ba8c7e7c82c1df0595a24154dc266d
           <div class="card mt-3 bg-light">
             <div>
               <div class="brand-card-header">
@@ -147,8 +153,8 @@ export default {
               friday: false,
               saturday: false,
               sunday: false,
-              time: ""
-              // user_id: ""
+              time: "",
+              user_id: ""
               },
     };
   },
@@ -170,7 +176,8 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time
+                    time: this.temptation.time,
+                    user_id: this.temptation.user_id
                     };
 
       axios.post("/api/temptations", params)
@@ -186,6 +193,7 @@ export default {
           this.temptation.saturday = false;
           this.temptation.sunday = false;
           this.temptation.time = "";
+          this.temptation.user_id = "";
         }).catch(error => {
           this.errors = error.response.data.errors;
         });
