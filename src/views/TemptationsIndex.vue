@@ -92,7 +92,7 @@
 
     <div class="card-deck">
       <div class="col-md-4" v-for="temptation in temptations">
-        <router-link v-bind:to="'/temptations/' + temptation.id">
+        <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
           <div class="card mt-3 bg-light">
             <h2 class="card-title mt-2 text-center" > {{ temptation.name }}</h2>
             <p class="card-text "> ${{ temptation.cost }}</p>

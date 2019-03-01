@@ -129,7 +129,7 @@ export default {
                     
       axios.patch("/api/temptations/" + this.temptation.id, params)
         .then(response => {
-          this.$router.push("/temptations/" + this.temptation.id);
+          this.$router.push("/temptations");
         }).catch(error => {
           this.errors = error.response.data.errors;
         });
