@@ -125,7 +125,12 @@ export default {
       errors: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/api/user")
+      .then(response => {
+        
+      });
+  },
   methods: {
     submit: function() {
       var params = {
@@ -138,7 +143,8 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time
+                    time: this.temptation.time,
+                    // user_id:
                     };
                     
       axios.post("/api/temptations", params)
