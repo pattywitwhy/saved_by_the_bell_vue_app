@@ -5,6 +5,7 @@
       <li v-for="error in errors"> {{ error }} </li>
     </ul>
 
+
     <div class='container'>
       <h2>Enter Basic Info</h2>
       <form v-on:submit.prevent="submit()">
@@ -85,7 +86,13 @@
           <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
         </div>
         <div class="new-button">
+<<<<<<< HEAD
           <button type="submit" class="btn btn-base-color btn-block btn-large box-shadow-wide mt-5 mx-0 text-white" id="btn-form-contact">Create</button>        </div>
+=======
+          <input type="submit" value="Create" class="btn btn-primary">
+        </div>
+
+>>>>>>> 262029438b1a94f393d0abbda486ca44fe38e44c
       </form>
     </div>
   </div>
@@ -142,8 +149,7 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time,
-                    // user_id:
+                    time: this.temptation.time
                     };
                     
       axios.post("/api/temptations", params)
