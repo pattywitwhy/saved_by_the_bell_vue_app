@@ -178,9 +178,13 @@ export default {
   },
   created: function() {
     axios.get("/api/temptations")
-    .then(response => {
-      this.temptations = response.data;
+      .then(response => {
+        this.temptations = response.data;
     });
+    axios.get("/api/users/" + this.$route.params.id)
+      .then(response => {
+        this.goal = response.data
+      });
   },
   methods: {
     submit_tempt: function() {

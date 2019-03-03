@@ -15,7 +15,6 @@ export default new Router({
   routes: [
 
           { path: '/', name: 'home', component: Home },
-          { path: '/home', name: 'home', component: Home },
           { path: '/temptations/:id/edit', name: 'temptations-edit', component: TemptationsEdit },
           { path: '/graphs', name: 'graphs', component: Graphs },
           { path: '/login', name: 'login', component: Login },
