@@ -97,15 +97,14 @@
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="card-group">
       <div class="col-sm-3" v-for="temptation in temptations">
-        <router-link v-bind:to="'/temptations/' + temptation.id">
-=======
+        <router-link v-bind:to="'/temptations/' + temptation.id"></router-link>
+      </div>
+    </div>
     <div class="card-deck">
       <div class="col-md-4" v-for="temptation in temptations">
         <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
->>>>>>> 4883876872ba8c7e7c82c1df0595a24154dc266d
           <div class="card mt-3 bg-light">
             <div>
               <div class="brand-card-header">
@@ -125,8 +124,7 @@
             </div>
           </div>
         </router-link>
-      </div>
-        
+      </div>   
     </div>
   </div>
 
