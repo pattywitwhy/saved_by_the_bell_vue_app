@@ -1,6 +1,15 @@
 <template>
 
   <div id="app">
+    <div class="logo-section">
+      <div class="content-wrap">
+        <div class="logo">
+          <h1>
+            <img id="banner" src="https://brokecollegestudentsblog.files.wordpress.com/2011/01/cropped-money_header3.jpg">
+          </h1>
+        </div>
+      </div>
+    </div>
     <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <router-link class="navbar-brand" to="/">$aved by the Bell!</router-link>
