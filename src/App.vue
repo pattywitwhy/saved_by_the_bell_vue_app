@@ -26,7 +26,10 @@
                   <router-link class="nav-link" to="login">Login</router-link>
                 </li>
                 <li class="dropdown-item">
-                  <a class="nav-link" on:click='logout()'>Logout</a>
+                  <a class="nav-link" v-on:click='logout()'>Logout</a>
+                </li>
+                <li class="dropdown-item">
+                  <router-link class="nav-link" to='signup'>Sign Up</router-link>
                 </li>
               </div>
             </li>

@@ -143,14 +143,13 @@ export default {
                     friday: this.temptation.friday,
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
-                    time: this.temptation.time,
-                    // user_id:
+                    time: this.temptation.time
                     };
                     
       axios.post("/api/temptations", params)
         .then(response => {
           this.$router.push("/temptations/");
-        }).temptations(error => {
+        }).catch(error => {
           this.errors = error.response.data.errors;
         });
     }
