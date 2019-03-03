@@ -26,7 +26,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li class="dropdown-item">
-                  <router-link class="nav-link" to="login">Login</router-link>
+                  <router-link class="`nav-link" to="login">Login</router-link>
                 </li>
                 <li class="dropdown-item">
                   <a class="nav-link" v-on:click='logout()'>Logout</a>
