@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="graphs">
     <div class="container">
       <h1 id="headline">Graphs</h1>
@@ -109,4 +109,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }]
     });
 });
-</script>
+</script> -->

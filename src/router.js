@@ -6,12 +6,15 @@ import Graphs from './views/Graphs.vue';
 import Login from './views/Login.vue';
 import Goals from './views/Goals.vue';
 
+
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+
+          { path: '/', name: 'home', component: TemptationsIndex },
           { path: '/temptations', name: 'temptations-index', component: TemptationsIndex },
           { path: '/temptations/:id/edit', name: 'temptations-edit', component: TemptationsEdit },
           { path: '/graphs', name: 'graphs', component: Graphs },
