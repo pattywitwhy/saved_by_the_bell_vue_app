@@ -70,7 +70,7 @@
           <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
         </div>
         <div class="new-button">
-          <input type="submit" value="Create" class="btn btn-primary">
+          <input type="submit" value="Update" class="btn btn-primary">
         </div>
       </form>
     </div>
@@ -129,7 +129,7 @@ export default {
                     
       axios.patch("/api/temptations/" + this.temptation.id, params)
         .then(response => {
-          this.$router.push("/temptations");
+          this.$router.push("/home");
         }).catch(error => {
           this.errors = error.response.data.errors;
         });

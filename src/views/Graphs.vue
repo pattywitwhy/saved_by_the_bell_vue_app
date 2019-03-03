@@ -1,4 +1,6 @@
+
 <!-- <template>
+>>>>>>> 262029438b1a94f393d0abbda486ca44fe38e44c
   <div class="graphs">
     <div class="container">
       <h1 id="headline">Graphs</h1>

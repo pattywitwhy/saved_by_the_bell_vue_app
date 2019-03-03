@@ -1,5 +1,5 @@
 <template>
-  <div class="temptation-index">
+  <div class="home">
     <ul>
       <li v-for="error in tempt_errors"> {{ error }} </li>
     </ul>
@@ -178,9 +178,13 @@ export default {
   },
   created: function() {
     axios.get("/api/temptations")
-    .then(response => {
-      this.temptations = response.data;
+      .then(response => {
+        this.temptations = response.data;
     });
+    axios.get("/api/users/" + this.$route.params.id)
+      .then(response => {
+        this.goal = response.data
+      });
   },
   methods: {
     submit_tempt: function() {
