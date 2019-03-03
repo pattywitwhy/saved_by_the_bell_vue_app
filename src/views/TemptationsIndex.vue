@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="temptation-index">
     <ul>
       <li v-for="error in tempt_errors"> {{ error }} </li>
     </ul>
@@ -85,7 +85,7 @@
           <li v-for="error in goal_errors"> {{ error }} </li>
         </ul>
         <div class='col-md'>
-          <h2>My Goals</h2>
+          <h1>My Goals</h1>
           <!-- <div v-if="If the User has a goal, display that, else, display entry form"></div> -->
           <form v-on:submit.prevent="submit_goal()">
             <div class="form-group">
@@ -178,13 +178,9 @@ export default {
   },
   created: function() {
     axios.get("/api/temptations")
-      .then(response => {
-        this.temptations = response.data;
+    .then(response => {
+      this.temptations = response.data;
     });
-    axios.get("/api/users/" + this.$route.params.id)
-      .then(response => {
-        this.goal = response.data
-      });
   },
   methods: {
     submit_tempt: function() {
