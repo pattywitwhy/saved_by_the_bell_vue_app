@@ -1,5 +1,5 @@
 <template>
-  <div class="temptation-index">
+  <div class="home">
     <ul>
       <li v-for="error in tempt_errors"> {{ error }} </li>
     </ul>
