@@ -72,7 +72,6 @@ export default {
               dollar_amount: 0,
               start: "",
               end: ""
-              // user_id: ""
               },
     };
   },
@@ -83,7 +82,7 @@ export default {
     });
   },
   methods: {
-    submit: function() {
+    submit_goal: function() {
       var params = {
                     name: this.goal.name,
                     dollar_amount: this.goal.dollar_amount,

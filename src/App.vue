@@ -4,6 +4,7 @@
     <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <router-link class="navbar-brand" to="/">$ave by the Bell!</router-link>
+      </nav>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <router-link class="navbar-brand" to="goals">$aved by the Bell!</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,14 +1,13 @@
 <template>
   <div class="temptation-index">
-
     <ul>
-      <!-- <li v-for="error in errors"> {{ error }} </li> -->
+      <li v-for="error in tempt_errors"> {{ error }} </li>
     </ul>
     <div class='container'>
-      <div class="card-group">
-        <div class='col-sm-6'>
+      <div class="row">
+        <div class='col-md'>
           <h2>What's tempting you?</h2>
-          <form v-on:submit.prevent="submit()">
+          <form v-on:submit.prevent="submit_tempt()">
             <div class="form-group">
               <label for="temptationSelect1">Select the Temptation You would like to be notified about: </label>
               <select class="form-control" id="temptationSelect1" v-model="temptation.name">
@@ -28,9 +27,7 @@
               <input class='form-control' type='text' v-model="temptation.cost" placeholder="ex: 5">
             </div>
             <div>
-              
               <div>On what days will you be tempted?</div>
-
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.monday">
@@ -38,49 +35,42 @@
                 M
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.tuesday">
               <label class="form-check-label" for="defaultCheck1">
                 T
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.wednesday">
               <label class="form-check-label" for="defaultCheck1">
                 W
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.thursday">
               <label class="form-check-label" for="defaultCheck1">
                 Th
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.friday">
               <label class="form-check-label" for="defaultCheck1">
                 F
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.saturday">
               <label class="form-check-label" for="defaultCheck1">
                 Sa
               </label>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="temptation.sunday">
               <label class="form-check-label" for="defaultCheck1">
                 S
               </label>
             </div>
-
             <div class="form-group">
               <label>What time does the temptation occur? </label>
               <input class='form-control' type='text' v-model="temptation.time" placeholder="ex: 8am">
@@ -91,49 +81,69 @@
           </form>
         </div>
 
-        <div class='col-sm-6'>
-          <h1>MY GOALS</h1>
-        </div>        
+        <ul>
+          <li v-for="error in goal_errors"> {{ error }} </li>
+        </ul>
+        <div class='col-md'>
+          <h2>MY GOALS</h2>
+          <!-- <div v-if="If the User has a goal, display that, else, display entry form"></div> -->
+          <form v-on:submit.prevent="submit_goal()">
+            <div class="form-group">
+              <label>Specific Goal:</label>
+              <input class='form-control' type='text' v-model="goal.goal_title" placeholder="ex: Wedding">
+            </div>
+            <div class="form-group">
+              <label>Savings Goal:</label>
+              <input class='form-control' type='integer' v-model="goal.goal_amount" placeholder="ex: 100">
+            </div>
+            <div class="form-group">
+              <label>When will you begin saving:</label>
+              <input class='form-control' type='datetime' v-model="goal.goal_start" placeholder="ex: July 1st">
+            </div>
+            <div class="form-group">
+              <label>What is the date you plan on reaching this savings goal by: </label>
+              <input class='form-control' type='datetime' v-model="goal.goal_end" placeholder="ex: Dec 31">
+            </div>
+            <div class="new-button">
+              <input type="submit" value="Create" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
 
-<<<<<<< HEAD
-    <div class="card-group">
-      <div class="col-sm-3" v-for="temptation in temptations">
-        <router-link v-bind:to="'/temptations/' + temptation.id">
-=======
-    <div class="card-deck">
-      <div class="col-md-4" v-for="temptation in temptations">
-        <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
->>>>>>> 4883876872ba8c7e7c82c1df0595a24154dc266d
-          <div class="card mt-3 bg-light">
-            <div>
-              <div class="brand-card-header">
-                <h2 class="card-title mt-2 text-center text-uppercase" > {{ temptation.name }}</h2>
-              </div>
-              <div class="brand-card">
+      <h1>Temptations</h1>
+      <div class="card-deck">
+        <div class="col-md-4" v-for="temptation in temptations">
+          <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
+            <div class="card mt-3 bg-light">
+              <div>
+                <div class="brand-card-header">
+                  <h2 class="card-title mt-2 text-center text-uppercase" > {{ temptation.name }}</h2>
+                </div>
+                <div class="brand-card">
 
-                <div class="brand-card-body">
-                  <div>
-                    <p class="card-text"><small class="text-muted"> ${{ temptation.cost }} </small></p>
+                  <div class="brand-card-body">
+                    <div>
+                      <p class="card-text"><small class="text-muted"> ${{ temptation.cost }} </small></p>
+                    </div>
+                    <div> 
+                      <p class="card-text"><small class="text-muted"> {{ temptation.time }} </small></p>
+                    </div>  
                   </div>
-                  <div> 
-                    <p class="card-text"><small class="text-muted"> {{ temptation.time }} </small></p>
-                  </div>  
                 </div>
               </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
+        </div>
       </div>
-        
     </div>
   </div>
-
 </template>
 
 <style>
-
+h2 {
+  text-align: center;
+}
 </style>
 
 <script>
@@ -142,6 +152,7 @@ var axios = require("axios");
 export default {
   data: function() {
     return {
+      tempt_errors: [],
       temptations: [],
       temptation: {
               name: "",
@@ -153,9 +164,16 @@ export default {
               friday: false,
               saturday: false,
               sunday: false,
-              time: "",
-              user_id: ""
+              time: ""
               },
+
+      goal_errors: [],
+      goal: {
+              goal_title: "",
+              goal_amount: 0,
+              goal_start: "",
+              goal_end: ""
+              }
     };
   },
   created: function() {
@@ -165,7 +183,7 @@ export default {
     });
   },
   methods: {
-    submit: function() {
+    submit_tempt: function() {
       var params = {
                     name: this.temptation.name,
                     cost: this.temptation.cost,
@@ -177,7 +195,6 @@ export default {
                     saturday: this.temptation.saturday,
                     sunday: this.temptation.sunday,
                     time: this.temptation.time,
-                    user_id: this.temptation.user_id
                     };
 
       axios.post("/api/temptations", params)
@@ -193,9 +210,23 @@ export default {
           this.temptation.saturday = false;
           this.temptation.sunday = false;
           this.temptation.time = "";
-          this.temptation.user_id = "";
         }).catch(error => {
-          this.errors = error.response.data.errors;
+          this.tempt_errors = error.response.data.errors;
+        });
+    },
+    submit_goal: function() {
+      var params = {
+                    goal_title: this.goal.goal_title,
+                    goal_amount: this.goal.goal_amount,
+                    goal_start: this.goal.goal_start,
+                    goal_end: this.goal.goal_end
+                    };
+
+      axios.patch("/api/users/" + this.$route.params.id, params)
+        .then(response => {
+          this.$router.push("/temptations/");
+        }).catch(error => {
+          this.goal_errors = error.response.data.errors;
         });
     }
   }
