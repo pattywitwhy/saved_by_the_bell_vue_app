@@ -11,7 +11,7 @@
       </div>
     </div>
     <div id="nav">
-      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <nav class="navbar navbar-expand-lg navbar-light navbar-default">
         <router-link class="navbar-brand" to="/">$aved by the Bell!</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -53,6 +53,11 @@
   width:100%;
   height:200px;
 }
+
+.navbar-default{
+  background-color: #CCF3C2;
+}
+
 </style>
 
 <script>
