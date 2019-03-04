@@ -85,7 +85,7 @@
           <li v-for="error in goal_errors"> {{ error }} </li>
         </ul>
         <div class='col-md'>
-          <h2>MY GOALS</h2>
+          <h2>My Goals</h2>
           <!-- <div v-if="If the User has a goal, display that, else, display entry form"></div> -->
           <form v-on:submit.prevent="submit_goal()">
             <div class="form-group">
@@ -110,24 +110,24 @@
           </form>
         </div>
       </div>
-
-      <h1>Temptations</h1>
+      <p></p>
+      <h2>Temptations</h2>
       <div class="card-deck">
         <div class="col-md-4" v-for="temptation in temptations">
           <router-link v-bind:to="'/temptations/' + temptation.id + '/edit'">
-            <div class="card mt-3 bg-light">
+            <div class="card mt-3 bg-light"><span class="border border-default"></span>
               <div>
                 <div class="brand-card-header">
-                  <h2 class="card-title mt-2 text-center text-uppercase" > {{ temptation.name }}</h2>
+                  <h2 class="card-title mt-3 text-center text-dark" > {{ temptation.name }}</h2>
                 </div>
                 <div class="brand-card">
-
                   <div class="brand-card-body">
                     <div>
-                      <p class="card-text"><small class="text-muted"> ${{ temptation.cost }} </small></p>
+                      <p class="card-text text-center"><small class="text-dark"> ${{ temptation.cost }} </small></p>
                     </div>
+                    <p></p>                    
                     <div> 
-                      <p class="card-text"><small class="text-muted"> {{ temptation.time }} </small></p>
+                      <p class="card-text text-center"><small class="text-dark"> {{ temptation.time }} </small></p>
                     </div>  
                   </div>
                 </div>
@@ -142,8 +142,35 @@
 
 <style>
 h2 {
+  font-family: Didot,
+  serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
   text-align: center;
 }
+
+p {
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px
+}
+
+.btn-primary {
+  background-color: #CCF3C2 !important;
+  border-color: #CCF3C2;
+}
+
+border-default {
+  background-color: #CCF3C2 !important;
+  border-color: #CCF3C2;
+}
+
 </style>
 
 <script>
